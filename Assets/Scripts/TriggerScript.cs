@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Playables;
+
+public class TriggerScript : MonoBehaviour
+{
+    public PlayableDirector timeline;
+
+    public bool OneTimeTrigger = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("I'm triggered!");
+            timeline.Play();
+
+            if (OneTimeTrigger == true)
+            {
+                Destroy(this.gameObject);
+            }
+
+        }
+    }
+
+
+
+
+}
